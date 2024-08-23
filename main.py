@@ -10,11 +10,13 @@ import app.l2.database as DB
 import app.l2.authorization as AUTH
 
 from app.l1.endpoint.common import router as common_router
+from app.l1.endpoint.admin import router as admin_router
+from app.l1.endpoint.guest import router as guest_router
 
 # definition
 async def startup():
     # database
-    DB.setup( app.state.config["database"] )
+    await DB.setup( app.state.config["database"] )
 
     # authorization
     AUTH.setup( app.state.config["authorization"] )
@@ -42,6 +44,8 @@ app.add_middleware( AccessMiddleware )
 
 # router
 app.include_router( common_router )
+app.include_router( admin_router )
+app.include_router( guest_router )
 
 
 

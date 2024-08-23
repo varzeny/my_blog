@@ -20,6 +20,9 @@ class AccessMiddleware(BaseHTTPMiddleware):
         else:
             req.state.access_token = AUTH.AccessToken()
 
+        # 표시
+        print("="*50, f"{req.state.access_token.account_role_}", "="*50)
+
         # 대기 중
         resp:Response = await call_next(req)
 

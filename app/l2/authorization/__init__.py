@@ -6,6 +6,7 @@ from typing import Literal
 from fastapi.requests import Request
 from fastapi.responses import Response, RedirectResponse
 from fastapi import HTTPException
+from fastapi.templating import Jinja2Templates
 
 # module
 from .token import *
@@ -73,4 +74,20 @@ def admin_only(req:Request):
     if req.state.access_token.account_role_ == "admin":
         return
     else:
-        raise HTTPException(status_code=401, detail="wrong access")
+        raise HTTPException(
+            status_code=307,
+            detail="Redirecting to login",
+            headers={ "Location": "/guest/login-page" }
+        )
+    
+
+def guest_only(req:Request):
+    if req.state.access_token.account_role_=="guest":
+        return
+    else:
+        raise HTTPException(status_code=400, detail="wrong access")
+
+
+
+
+# end of file

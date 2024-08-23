@@ -17,3 +17,8 @@ def create_hash(input_val:str) -> str:
         salt= gensalt()
     )
     return result.decode("utf-8")
+
+
+if __name__ == "__main__":
+    target = ""
+    print( create_hash(target) )

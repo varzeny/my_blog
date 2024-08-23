@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset='utf-8'>
+    <title>Post Writer</title>
+    <meta name='viewport' content='width=device-width, initial-scale=1'>
+    <link rel='stylesheet' type='text/css' href='/static/css/reset.css'>
+    <link rel='stylesheet' type='text/css' href='/static/css/post_writer.css'>
+    <script src='/static/js/post_writer.js'></script>
+</head>
+<body>
+    {% include "header_admin.html" %}
+
+    <main>
+        <section>
+            <h2>Post Writer</h2>
+            <form class="post-form">
+                <div class="form-group">
+                    <label for="title">Title</label>
+                    <input type="text" name="title_" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="thumbnail">Thumbnail</label>
+                    <input type="file" name="thumbnail_" accept="image/*">
+                </div>
+
+                <div class="form-group">
+                    <label for="excerpt">Excerpt</label>
+                    <textarea name="excerpt_" rows="3" required></textarea>
+                </div>
+
+                <div class="form-group">
+                    <label for="content">Content</label>
+                    <textarea name="content_" rows="10" required></textarea>
+                </div>
+
+                <div class="form-group">
+                    <label for="category">Category ID</label>
+                    <input type="number" name="category_id_" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="tags">Tags (comma-separated)</label>
+                    <input type="text" name="tags_" placeholder="tag1, tag2">
+                </div>
+
+                <button type="submit">Submit Post</button>
+            </form>
+
+        </section>
+    </main>
+    
+</body>
+</html>
