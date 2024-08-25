@@ -1,0 +1,55 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{ post.title }}</title>
+    <link rel="stylesheet" href="{% static 'blog/css/reset.css' %}">
+    <link rel="stylesheet" href="{% static 'blog/css/thema.css' %}">
+    <link rel="stylesheet" href="{% static 'blog/css/post_detail.css' %}">
+</head>
+<body>
+
+
+    <main>
+        <article class="post-detail">
+            <header class="post-header">
+                <h2>{{ post.title }}</h2>
+                <p class="post-meta">Published on {{ post.published_at }}</p>
+            </header>
+
+            <section class="post-content">
+                {% if post.thumbnail %}
+                    <img src="{{ post.thumbnail.url }}" alt="{{ post.title }}" class="post-thumbnail">
+                {% endif %}
+                <div class="content">{{ post.content|safe }}</div>
+            </section>
+
+            <footer class="post-footer">
+                <section class="comments-section">
+                    <h2>Comments</h2>
+                    <ul class="comment-list">
+                        {% for comment in post.comments.all %}
+                            <li class="comment-item">
+                                <p class="comment-author">{{ comment.name }}</p>
+                                <p class="comment-date">{{ comment.created_at }}</p>
+                                <p class="comment-content">{{ comment.content }}</p>
+                            </li>
+                        {% endfor %}
+                    </ul>
+
+                    <h3>Leave a Comment</h3>
+                    <form id="comment-form" action="{% url 'add_comment' post.id %}" method="post">
+                        {% csrf_token %}
+                        <input type="text" name="name" placeholder="Your name" required>
+                        <input type="password" name="password" placeholder="Password" required>
+                        <textarea name="content" rows="4" placeholder="Write your comment here..." required></textarea>
+                        <button type="submit">Submit Comment</button>
+                    </form>
+                </section>
+            </footer>
+        </article>
+    </main>
+</body>
+</html>
