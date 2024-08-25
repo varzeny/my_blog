@@ -1,0 +1,47 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset='utf-8'>
+    <title>Home</title>
+    <meta name='viewport' content='width=device-width, initial-scale=1'>
+    <link rel='stylesheet' type='text/css' href="{% static 'css/reset.css' %}">
+    <link rel='stylesheet' type='text/css' href="{% static 'css/thema.css' %}">
+    <link rel='stylesheet' type='text/css' href="{% static 'app_home/css/home.css' %}">
+    <script src="{% static 'app_home/js/home.js' %}"></script>
+</head>
+<body>
+    {% include 'header.html' %}
+
+    <main>
+        <section class="service">
+            <label><h2>Service</h2></label><br>
+        </section>
+
+        <section class="post-rank">
+            <label><h2>Rank</h2></label><br>
+            <div class="left">
+                <div class="rank" id="top1">
+                    <label>Top1</label>
+
+                </div>
+            </div>
+
+            <div class="right">
+                <div class="rank" id="top2">
+                    <label>Top2</label>
+
+
+                </div>
+                <div class="rank" id="top3">
+                    <label>Top3</label>
+
+                </div>
+            </div>
+        </section>
+    </main>
+
+
+    {% include 'footer.html' %}
+</body>
+</html>

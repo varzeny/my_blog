@@ -1,0 +1,13 @@
+/* thema.css */
+
+html {
+    font-size: x-large;
+}
+
+body {
+    width: 100%; height: 100%;
+    background-color: black;
+    color: darkgray;
+    padding-top: 30vh;
+    padding-bottom: 5vh;
+}
