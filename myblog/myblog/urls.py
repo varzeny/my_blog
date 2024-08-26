@@ -19,6 +19,7 @@ from django.urls import path, include
 
 urlpatterns = [
     path('admin/', admin.site.urls),
+    path('comments/', include('django_comments.urls')),  # 댓글 기능 추가
     path("", include("app_home.urls")),
     path("posting/", include("app_posting.urls")),
 ]

@@ -38,9 +38,14 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'channels',
+    'django.contrib.sites',
+    'django_comments',
     'app_home',
     'app_posting',
 ]
+
+# 댓글용
+SITE_ID = 1
 
 # 비동기용 설정 
 ASGI_APPLICATION = 'myblog.asgi.application' 

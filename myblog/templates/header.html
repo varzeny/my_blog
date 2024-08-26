@@ -37,6 +37,10 @@
             font-size: 1.5rem;
             margin-right: 2rem;
         }:last-child{ margin-right: 0; }
+        
+        header li:hover{
+            font-weight: bold;
+        }
     </style>
 
     <div class="container-banner">
@@ -47,8 +51,8 @@
         <nav>
             <ul>
                 <li><a target="_top" href="{% url 'get_html_home' %}">Home</a></li>
-                <li><a target="_top" href="">About Me</a></li>
-                <li><a target="_top" href="">Post</a></li>
+                <li><a target="_top" href="{% url 'get_html_aboutme' %}">About Me</a></li>
+                <li><a target="_top" href="{% url 'get_html_posting' %}">Post</a></li>
             </ul>
         </nav>
     </div>

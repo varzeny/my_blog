@@ -1,0 +1,71 @@
+/* aboutme.css */
+
+body {
+    width: 100%; height: 100%;
+    display: flex;
+}
+
+aside {
+    width: 50%; height: 65vh;
+    background-image: url("/static/app_home/image/portrait1.png");
+    background-size: cover;
+    background-position: top;
+    background-repeat: no-repeat;
+}
+
+main {
+    width: 50%; height: 100%;
+    padding-left: 1rem; padding-right: 1rem;
+    font-style: italic;
+}
+    main h2 {
+        color: deeppink;
+    }
+    main h3 {
+        color: orangered;
+    }
+    main h4 {
+        color: orange;
+    }
+
+main section {
+    border-top: 1px solid orangered;
+    margin-bottom: 2rem;
+}
+    .intro {
+
+    }
+        .container-roll {
+            display: inline-block;
+            height: 1.5rem;
+            overflow: hidden;
+        }
+            .container-roll ul {
+                color: white;
+                vertical-align: top;
+                animation-name: rolling;
+                animation-duration: 4s;
+                animation-iteration-count: infinite;
+            }
+            @keyframes rolling{
+                0%{ transform: translateY(0); }
+                25%{ transform: translateY(-20%); }
+                50%{ transform: translateY(-40%); }
+                75%{ transform: translateY(-60%); }
+                100%{ transform: translateY(-80%); }
+            }
+
+    .project {
+
+    }
+
+    .history {
+
+    }
+        .history li {
+            margin-bottom: 2rem;
+        }:last-child{ margin-bottom: 0; }
+        .evidence {
+            width: 100%; height: 40vh;
+        }
+

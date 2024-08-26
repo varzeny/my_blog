@@ -1,0 +1,59 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset='utf-8'>
+    <title>Posts</title>
+    <meta name='viewport' content='width=device-width, initial-scale=1'>
+    <link rel='stylesheet' type='text/css' href="{% static 'css/reset.css' %}">
+    <link rel='stylesheet' type='text/css' href="{% static 'css/thema.css' %}">
+    <link rel='stylesheet' type='text/css' href="{% static 'app_posting/css/posting.css' %}">
+    <script src="{% static 'app_posting/js/posting.js' %}"></script>
+</head>
+<body>
+    {% include 'header.html' %}
+
+    <aside class="sidebar">
+        <section class="search">
+            <h3>Search</h3>
+            <form action="" method="get">
+                <input type="text" name="q" placeholder="Search...">
+                <button type="submit">Search</button>
+            </form>
+        </section>
+
+        <section class="categories">
+            <h3>Categories</h3>
+            <ul>
+                {% for c in categories %}
+                    <li><span onclick="get_post_by_slug('{{ c.slug }}')">{{ c.name }}</span></li>
+                {% endfor %}
+            </ul>
+        </section>
+
+        <section class="tag">
+            <h3>Tag</h3>
+            <ul>
+                {% for t in tags %}
+                    <li><span onclick="get_post_by_slug('{{ t.slug }}')">{{ t.name }}</span></li>
+                {% endfor %}
+            </ul>
+        </section>
+    </aside>
+
+    <main>
+        <section class="posts">
+            <h3>Posts</h3><br>
+            <div id="post-list">
+                <!-- 포스트 목록이 여기에 비동기적으로 로드됨 -->
+            </div>
+    
+            <div id="pagination">
+                <!-- 페이지네이션 버튼이 동적으로 추가됨 -->
+            </div>
+        </section>
+    </main>
+
+    {% include 'footer.html' %}
+</body>
+</html>
