@@ -5,6 +5,13 @@ document.addEventListener("DOMContentLoaded", init);
 
 async function init() {
     
+    let SLUG = document.querySelector("body").getAttribute("data-slug");
+    console.log(SLUG);
+
+    if(SLUG=="None"){ SLUG="chat" }
+
+    await get_post_by_slug(SLUG);
+
     // 이벤트
 
 

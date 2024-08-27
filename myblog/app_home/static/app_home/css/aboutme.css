@@ -18,15 +18,6 @@ main {
     padding-left: 1rem; padding-right: 1rem;
     font-style: italic;
 }
-    main h2 {
-        color: deeppink;
-    }
-    main h3 {
-        color: orangered;
-    }
-    main h4 {
-        color: orange;
-    }
 
 main section {
     border-top: 1px solid orangered;

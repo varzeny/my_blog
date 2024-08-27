@@ -12,33 +12,65 @@
 </head>
 <body>
     {% include 'header.html' %}
-
+    <h2 style="display: none;">Home</h2>
+    
     <main>
         <section class="service">
-            <label><h2>Service</h2></label><br>
+            <label><h3>Service</h3></label><br>
         </section>
 
-        <section class="post-rank">
-            <label><h2>Rank</h2></label><br>
-            <div class="left">
-                <div class="rank" id="top1">
-                    <label>Top1</label>
 
+        <section class="rank">
+            <label><h3>Rank</h3></label><br>
+            <div class="container-leftright">
+                <div class="left">
+                    <div class="container-post" id="top1">
+                        {% if top_posts|length > 0 %}
+                        <a href="{% url 'get_post_by_slug' top_posts.0.slug %}">
+                            <article>
+                                <img src="{{ top_posts.0.thumbnail.url }}" alt="{{ top_posts.0.title }}">
+                                <div>
+                                    <h5>{{ top_posts.0.title }}</h5>
+                                    <p>{{ top_posts.0.excerpt }}</p>
+                                </div>
+                            </article>
+                        </a>
+                        {% endif %}
+                    </div>
                 </div>
-            </div>
 
-            <div class="right">
-                <div class="rank" id="top2">
-                    <label>Top2</label>
-
-
-                </div>
-                <div class="rank" id="top3">
-                    <label>Top3</label>
-
+                <div class="right">
+                    <div class="container-post" id="top2">
+                        {% if top_posts|length > 1 %}
+                        <a href="{% url 'get_post_by_slug' top_posts.1.slug %}">
+                            <article>
+                                <img src="{{ top_posts.1.thumbnail.url }}" alt="{{ top_posts.1.title }}">
+                                <div>
+                                    <h5>{{ top_posts.1.title }}</h5>
+                                    <p>{{ top_posts.1.excerpt }}</p>
+                                </div>
+                            </article>
+                        </a>
+                        {% endif %}
+                    </div>
+                    <div class="container-post" id="top3">
+                        {% if top_posts|length > 2 %}
+                        <a href="{% url 'get_post_by_slug' top_posts.2.slug %}">
+                            <article>
+                                <img src="{{ top_posts.2.thumbnail.url }}" alt="{{ top_posts.2.title }}">
+                                <div>
+                                    <h5>{{ top_posts.2.title }}</h5>
+                                    <p>{{ top_posts.2.excerpt }}</p>
+                                </div>
+                            </article>
+                        </a>
+                        {% endif %}
+                    </div>
                 </div>
             </div>
         </section>
+
+
     </main>
 
 

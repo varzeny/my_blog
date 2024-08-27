@@ -6,11 +6,16 @@ from django.http import JsonResponse
 # Create your views here.
 
 def get_html_posting(req):
-    
+    # 요구가 있나 확인
+    slug = req.GET.get("slug")
+    print("@@@@@@@@@@@@@@@@@@",slug)
+
+
     # 카테고리와 태그 목록을 가져옵니다.
     context = {
         "categories":Category.objects.all(),
-        "tags":Tag.objects.all()
+        "tags":Tag.objects.all(),
+        "slug":slug
     }
 
     return render(req, "app_posting/posting.html", context)
@@ -58,6 +63,11 @@ def get_posts_by_slug(req):
 
 def get_post_by_slug(req, slug):
     post = get_object_or_404(Post, slug=slug, published=True)
+
+    # 조회수 증가
+    post.views += 1
+    post.save()
+    
     context = {
         "post":post,
     }

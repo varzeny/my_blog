@@ -9,12 +9,12 @@ main {
     padding-left: 2rem; padding-right: 2rem; padding-top: 1rem; padding-bottom: 1rem;
 
 }
-
-    h3 { color: orangered; font-size: 1.4rem; }
-    h4 { color: orange; font-size: 1.2rem; }
-
     main section {
         margin-top: 1rem; margin-bottom: 1rem;
+    }
+
+    main img {
+        width: 100%;
     }
 
     main li {

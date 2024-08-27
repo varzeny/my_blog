@@ -10,7 +10,7 @@
     <link rel='stylesheet' type='text/css' href="{% static 'app_posting/css/posting.css' %}">
     <script src="{% static 'app_posting/js/posting.js' %}"></script>
 </head>
-<body>
+<body data-slug="{{ slug }}">
     {% include 'header.html' %}
 
     <aside class="sidebar">

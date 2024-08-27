@@ -5,12 +5,6 @@ body {
     display: flex;
     font-style: italic;
 }
-    body h3 {
-        color: orangered;
-    }
-    body h4 {
-        color: orange;
-    }
 
 aside {
     width: 30%; height: 100%;
@@ -50,6 +44,7 @@ main {
                 display: flex;
                 /* border: 1px solid red; */
                 margin-bottom: 1.5rem;
+                border: 1px solid rgba(255, 255, 255, 0.2);
                 box-shadow: 4px 4px 10px rgba(255, 255, 255, 0.2); /* 밝은 회색 그림자 */
             }:last-child{ margin-bottom: 0; }
             .posts article:hover {
