@@ -8,12 +8,12 @@ from django.http import JsonResponse
 def get_html_posting(req):
     
     # 카테고리와 태그 목록을 가져옵니다.
-    respData = {
+    context = {
         "categories":Category.objects.all(),
         "tags":Tag.objects.all()
     }
 
-    return render(req, "app_posting/posting.html", respData)
+    return render(req, "app_posting/posting.html", context)
 
 
 
@@ -45,7 +45,7 @@ def get_posts_by_slug(req):
         for post in page_obj
     ]
     
-    data = {
+    respData = {
         'posts': posts_data,
         'has_next': page_obj.has_next(),
         'has_previous': page_obj.has_previous(),
@@ -53,4 +53,12 @@ def get_posts_by_slug(req):
         'total_pages': paginator.num_pages,
     }
     
-    return JsonResponse(data)
+    return JsonResponse(respData)
+
+
+def get_post_by_slug(req, slug):
+    post = get_object_or_404(Post, slug=slug, published=True)
+    context = {
+        "post":post,
+    }
+    return render(req, "app_posting/post.html", context)

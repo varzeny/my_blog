@@ -26,7 +26,7 @@ async function get_post_by_slug(slug, page=1) {
 
             respData.posts.forEach(post => {
                 const a = document.createElement('a');
-                a.href = `/posting/posts/${post.slug}`
+                a.href = `/posting/post/${post.slug}`
                 a.innerHTML = `
                 <article>
                     <div class="left">

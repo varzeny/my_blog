@@ -1,14 +1,14 @@
 {% load static %}
-<header>
+<header class="header-bar">
     <style>
-        header {
+        .header-bar {
             width: 100%; height: 30vh;
             position: fixed;
             top: 0; left: 0;
             z-index: 1000;
         }
 
-        .container-banner {
+        .header-bar .container-banner {
             width: 100%; height: 70%;
             background-image: url("{% static 'image/earthview.jpg' %}");
             background-size: cover;
@@ -20,7 +20,7 @@
             font-style: italic;
         }
 
-        .container-nav {
+        .header-bar .container-nav {
             width: 100%; height: 30%;
             display: flex;
             justify-content: center;
@@ -29,16 +29,16 @@
             background-color: black;
         }
 
-        header ul {
+        .header-bar ul {
 
         }
-        header li {
+        .header-bar li {
             display: inline-block;
             font-size: 1.5rem;
             margin-right: 2rem;
         }:last-child{ margin-right: 0; }
         
-        header li:hover{
+        .header-bar li:hover{
             font-weight: bold;
         }
     </style>

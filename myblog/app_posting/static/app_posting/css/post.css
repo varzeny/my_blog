@@ -1,0 +1,56 @@
+/* post.css */
+
+main {
+
+    margin-left: 2rem; margin-right: 2rem;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    border-radius: 1rem;
+    box-shadow: 4px 4px 10px rgba(255, 255, 255, 0.2); /* 밝은 회색 그림자 */
+    padding-left: 2rem; padding-right: 2rem; padding-top: 1rem; padding-bottom: 1rem;
+
+}
+
+    h3 { color: orangered; font-size: 1.4rem; }
+    h4 { color: orange; font-size: 1.2rem; }
+
+    main section {
+        margin-top: 1rem; margin-bottom: 1rem;
+    }
+
+    main li {
+        display: inline-block;
+    }
+
+aside {
+    margin: 2rem;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    border-radius: 1rem;
+    box-shadow: 4px 4px 10px rgba(255, 255, 255, 0.2); /* 밝은 회색 그림자 */
+    padding: 2rem;
+}
+    aside dl {
+        padding: 1rem;
+        margin-bottom: 1rem;
+    }:last-child{ margin-bottom: 0; }
+
+    aside dt {
+        font-style: italic;
+        font-size: 0.7rem;
+    }
+
+    aside dd {
+        color: white;
+        margin-bottom: 1rem;
+    }
+
+    aside form {
+        padding: 1rem;
+    }
+        aside form p {
+            display: flex;
+            flex-direction: column;
+            margin-bottom: 0.5rem;
+        }
+        aside form input {
+            width: 30%;
+        }
