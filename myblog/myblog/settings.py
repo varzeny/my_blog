@@ -11,6 +11,10 @@ https://docs.djangoproject.com/en/5.1/ref/settings/
 """
 
 from pathlib import Path
+import os
+from dotenv import load_dotenv
+# 설정 불러오기
+load_dotenv()
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -20,10 +24,10 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # See https://docs.djangoproject.com/en/5.1/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = 'django-insecure-p+5afy6v#szo@=5tl)ww4w_oaq(fj+r$vbkqg)fqd1h-(xqa8#'
+SECRET_KEY = os.getenv("SECRET_KEY")
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = os.getenv('DEBUG', 'True') == 'True'
 
 ALLOWED_HOSTS = ['varzeny.com', 'www.varzeny.com', '127.0.0.1', 'localhost']
 
@@ -88,11 +92,11 @@ WSGI_APPLICATION = 'myblog.wsgi.application'
 DATABASES = { 
     'default': { 
         'ENGINE': 'django.db.backends.mysql', 
-        'NAME': 'myblog', 
-        'USER': 'myblog_dba', 
-        'PASSWORD': 'dba', 
-        'HOST': 'localhost', 
-        'PORT': '3306', 
+        'NAME': os.getenv("DB_NAME"), 
+        'USER': os.getenv("DB_USER"), 
+        'PASSWORD': os.getenv("DB_PASSWORD"), 
+        'HOST': os.getenv("DB_HOST", "localhost"), 
+        'PORT': os.getenv("DB_PORT"), 
     } 
 } 
 
