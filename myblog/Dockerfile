@@ -17,11 +17,14 @@ COPY requirements.txt .
 # 5. 종속성 설치
 RUN pip install --no-cache-dir -r requirements.txt
 
+# 개발환경에서 직접 호스트 파일을 참조시에는 필요 없음
 # 6. 나머지 프로젝트 파일 복사
-COPY . /app
+# COPY . /app
 
 # 7. (선택 사항) Static 파일 수집
-RUN python manage.py collectstatic --noinput
+# RUN python manage.py collectstatic --noinput
 
+
+# 컨테이너 직접 제어시에는 cmd 필요 없음
 # 8. 명령어 설정 (Daphne 실행)
-CMD ["sh", "-c", "python manage.py migrate && daphne -b 0.0.0.0 -p 9000 myblog.asgi:application"]
+# CMD ["sh", "-c", "python manage.py migrate && daphne -b 0.0.0.0 -p 9000 myblog.asgi:application"]
