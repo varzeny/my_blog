@@ -15,7 +15,7 @@ you must remake .env
 #### 프로젝트에 .env 만들것
 #### 컨테이너
 sudo docker run -d --name container-myblog-240829 \
-  -v ~/prj/myblog/myblog:/app \
+  -v ~/prj/my_blog/myblog:/app \
   varzeny/myblog-240829
 
 #### nginx

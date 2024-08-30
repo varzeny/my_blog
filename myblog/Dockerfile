@@ -25,6 +25,13 @@ RUN pip install --no-cache-dir -r requirements.txt
 # RUN python manage.py collectstatic --noinput
 
 
-# 컨테이너 직접 제어시에는 cmd 필요 없음
 # 8. 명령어 설정 (Daphne 실행)
+CMD ["sh", "-c", "python manage.py makemigrations  && \
+python manage.py migrate && \
+python manage.py collectstatic --noinput && \
+daphne -b 0.0.0.0 -p 9000 myblog.asgi:application"]
+
+
+
+
 # CMD ["sh", "-c", "python manage.py migrate && daphne -b 0.0.0.0 -p 9000 myblog.asgi:application"]
