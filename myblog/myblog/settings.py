@@ -31,6 +31,11 @@ DEBUG = os.getenv('DEBUG', 'True') == 'True'
 
 ALLOWED_HOSTS = ['varzeny.com', 'www.varzeny.com', '127.0.0.1', 'localhost']
 
+CSRF_COOKIE_SECURE = True
+CSRF_COOKIE_DOMAIN = 'varzeny.com'
+CSRF_TRUSTED_ORIGINS = ['https://varzeny.com']
+
+
 
 # Application definition
 
