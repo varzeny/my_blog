@@ -7,6 +7,11 @@ const MODAL = {
     delete:null,
     init:function(){
         this.delete = document.getElementById("modal-delete");
+
+        let btn_x = document.getElementById("btn-modal-x");
+        btn_x.addEventListener("click", ()=>{
+            this.delete.style.display = "none";
+        });
     }
 }
 
@@ -21,7 +26,6 @@ const TAG = {
         for(let cmt of this.comments){
             let btn_del = cmt.querySelector(".btn-delete");
             btn_del.addEventListener("click", (ev)=>{
-
                 // 모달 등장
                 MODAL.delete.style.top = `${ev.pageY}px`
                 MODAL.delete.style.left = `${ev.pageX}px`

@@ -119,7 +119,6 @@ from django.http import HttpResponse
 def comment_delete(req):
     id = req.POST.get("comment_id")
     pw = req.POST.get("comment_pw")
-    print(id,pw)
 
     cmt = get_object_or_404(Comment, id=id)
 
