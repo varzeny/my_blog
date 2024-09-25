@@ -64,17 +64,88 @@
 
 
     <!-- 댓글 -->
-    <aside class="post-comments">
-        <h3>Comments</h3>
-        {% load comments %}
-    
-        <!-- 댓글 목록 렌더링 -->
-        {% render_comment_list for post %}
-    
-        <!-- 댓글 작성 폼 -->
-        <h4>Leave a Comment</h4>
-        {% render_comment_form for post %}
+    <aside class="comments">
+        <section class="comment-show">
+            <h3>Comments</h3>
+            <ul class="list" id="comment-list">
+                {% for comment in comments %}
+                <li class="list-element">
+                    <article class="comment">
+                        <header class="comment-header">
+                            <p>{{ comment.author }}</p>
+                            <input type="hidden" id="comment-id" value="{{ comment.id }}">
+                            <button class="btn-delete">delete</button>
+                        </header>
+                        <hr>
+                        <div class="comment-content">
+                            <p>{{ comment.content }}</p>
+                        </div>
+                        <hr>
+                        <footer class="comment-footer">
+                            {{ comment.created_at }}
+                        </footer>
+                    </article>
+
+                    <!-- 대댓글 -->
+                    {% if comment.replies.exists %}
+                    <div class="ccoment">
+                        {% for reply in comment.replies.all %}
+                        <article class="comment">
+                            <header class="comment-header">
+                                <p>{{ reply.author }} : {{ reply.created_at }}</p>
+                            </header>
+                            <hr>
+                            <div class="comment-content">
+                                <p>{{ reply.content }}</p>
+                            </div>
+                            <hr>
+                            <footer class="comment-footer">
+            
+                            </footer>
+                        </article>
+                        {% endfor %}
+                    </div>
+                    {% endif %}
+                </li>
+                {% endfor %}
+            </ul>
+        </section>
+
+        <section class="comment-write">
+            <h3>write a comment</h3>
+            <form class="comment-form" action="{% url 'comment_create' post.id %}" method="post">
+                {% csrf_token %}
+                <div class="l">
+                    <label for="author">Name</label>
+                    <input id="author" type="text" name="author" required>
+
+                    <label for="pw">Password</label>
+                    <input id="pw" type="password" name="pw" required>
+                </div>
+                <div class="m">
+                    <textarea id="content" name="content" required></textarea>
+                </div>
+
+                <div class="r">
+                    <button type="submit">Add Comment</button>
+                </div>
+
+                <!-- <input type="hidden" name="parent_id" value="{{ parent_comment.id }}"> -->
+
+            </form>
+
+        </section>
     </aside>
+
+    <div class="modal" id="modal-delete">
+        <form action="{% url 'comment_delete'  %}" method="post">
+            {% csrf_token %}
+            <label for="modal-pw">PW</label>
+            <input id="comment-pw" type="password" name="comment_pw" required>
+            <input id="comment_id" type="hidden" name="comment_id" value="111">
+            <button type="submit">delete</button>
+        </form>
+    </div>
 
 
     {% include 'footer.html' %}

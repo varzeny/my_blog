@@ -1,7 +1,10 @@
-from django.shortcuts import render, get_object_or_404
-from .models import Post, Category, Tag
+from django.shortcuts import render, get_object_or_404, redirect
+from .models import Post, Comment, Category, Tag
 from django.core.paginator import Paginator
 from django.http import JsonResponse
+from django.http import HttpResponseBadRequest
+from django.views.decorators.csrf import csrf_protect
+from django.views.decorators.http import require_POST
 
 # Create your views here.
 
@@ -67,8 +70,61 @@ def get_post_by_slug(req, slug):
     # 조회수 증가
     post.views += 1
     post.save()
+
+    # 댓글 가져오기
+    comments = Comment.objects.filter(post=post, parent=None).order_by('created_at')
     
     context = {
         "post":post,
+        "comments":comments,
     }
     return render(req, "app_posting/post.html", context)
+
+
+@csrf_protect
+@require_POST
+def comment_create(request, post_id):
+    post = get_object_or_404(Post, id=post_id)  # 해당 포스트를 찾습니다.
+
+    # 폼 데이터 받기
+    author = request.POST.get('author')
+    pw = request.POST.get('pw')
+    content = request.POST.get('content')
+    parent_id = request.POST.get('parent_id', None)  # 대댓글일 경우 부모 댓글 ID
+
+    # 필수 데이터가 누락된 경우 오류 처리
+    if not (author and pw and content):
+        return HttpResponseBadRequest("Author, password, and content are required.")
+
+    # 부모 댓글이 있는 경우 해당 댓글을 가져옵니다.
+    parent_comment = None
+    if parent_id:
+        parent_comment = get_object_or_404(Comment, id=parent_id)
+
+    # 새로운 댓글 생성
+    Comment.objects.create(
+        post=post,
+        author=author,
+        pw=pw,  # 보안을 위해 해시 처리가 필요할 수 있습니다.
+        content=content,
+        parent=parent_comment
+    )
+
+    # 댓글 작성 후 포스트 상세 페이지로 리다이렉트
+    return redirect('get_post_by_slug', slug=post.slug)
+
+from django.http import HttpResponse
+@csrf_protect
+@require_POST
+def comment_delete(req):
+    id = req.POST.get("comment_id")
+    pw = req.POST.get("comment_pw")
+    print(id,pw)
+
+    cmt = get_object_or_404(Comment, id=id)
+
+    if cmt.pw == pw:
+        cmt.delete()
+        return redirect('get_post_by_slug', slug=cmt.post.slug)
+    else:
+        return HttpResponseBadRequest("wrong pw")

@@ -29,11 +29,11 @@ SECRET_KEY = os.getenv("SECRET_KEY")
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = os.getenv('DEBUG', 'True') == 'True'
 
-ALLOWED_HOSTS = ['varzeny.com', 'www.varzeny.com', '127.0.0.1', 'localhost']
+ALLOWED_HOSTS = ['varzeny.com', 'www.varzeny.com', '127.0.0.1', 'localhost', 'test.varzeny.com']
 
 CSRF_COOKIE_SECURE = True
-CSRF_COOKIE_DOMAIN = 'varzeny.com'
-CSRF_TRUSTED_ORIGINS = ['https://varzeny.com']
+CSRF_COOKIE_DOMAIN = '.varzeny.com'
+CSRF_TRUSTED_ORIGINS = ['https://varzeny.com', 'https://test.varzeny.com']
 
 
 
@@ -47,14 +47,14 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'channels',
-    'django.contrib.sites',
-    'django_comments',
+    # 'django.contrib.sites',
+    # 'django_comments',
     'app_home',
     'app_posting',
 ]
 
 # 댓글용
-SITE_ID = 1
+# SITE_ID = 1
 
 # 비동기용 설정 
 ASGI_APPLICATION = 'myblog.asgi.application' 
@@ -68,6 +68,7 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    'django.middleware.csrf.CsrfViewMiddleware',
 ]
 
 ROOT_URLCONF = 'myblog.urls'

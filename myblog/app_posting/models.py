@@ -1,8 +1,6 @@
 from django.db import models
 from django.contrib.auth.models import User
 from django.utils import timezone
-from django.contrib.contenttypes.fields import GenericRelation
-from django_comments.models import Comment
 
 
 class Category(models.Model):
@@ -41,7 +39,7 @@ class Post(models.Model):
     published_at = models.DateTimeField(default=timezone.now)  # 발행 날짜
     published = models.BooleanField(default=False)  # 발행 여부
     views = models.PositiveIntegerField(default=0)  # 조회수
-    comments = GenericRelation(Comment, related_query_name='relation_post_comments')  # 댓글 기능
+
 
     class Meta:
         ordering = ['-published_at']  # 기본 정렬 기준: 발행 날짜의 내림차순
@@ -51,3 +49,15 @@ class Post(models.Model):
 
     def get_absolute_url(self):
         return f'/posting/post/{self.slug}/'
+
+
+
+
+class Comment(models.Model):
+    post = models.ForeignKey(Post, on_delete=models.CASCADE)
+    author = models.CharField(max_length=32)
+    pw = models.CharField(max_length=128)
+    content = models.TextField()
+    parent = models.ForeignKey('self', null=True, blank=True, related_name='replies', on_delete=models.CASCADE)  # 부모 댓글
+    created_at = models.DateTimeField(auto_now_add=True)  # 생성 날짜
+    updated_at = models.DateTimeField(auto_now=True)  # 수정 날짜
