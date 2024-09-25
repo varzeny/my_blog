@@ -137,20 +137,27 @@ aside {
     z-index: 10;
     background-color: black;
 }
-    .modal > label {
-        flex: 1;
-        margin-right: 0.5rem;
+    #form-modal{
+
     }
-    .modal > input {
-        flex: 7;
-        margin-right: 0.5rem;
-        background-color: black;
-        border: 1px solid rgba(255, 255, 255, 0.2);
-        color: white;
-    }
-    .modal > button {
-        flex: 2;
-        background-color: black;
-        color: white;
-        border: 1px solid rgba(255, 255, 255, 0.2);
-    }
+        #form-modal > label {
+            flex: 1;
+            margin-right: 0.5rem;
+        }
+        #form-modal > input {
+            flex: 7;
+            margin-right: 0.5rem;
+            background-color: black;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            color: white;
+        }
+        #form-modal > button {
+            flex: 2;
+            background-color: black;
+            color: white;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+        }
+        #form-modal > button:hover{
+            transform: translateY(-5px);
+            box-shadow: 0px 0px 20px rgba(255, 255, 255, 0.4);
+        }

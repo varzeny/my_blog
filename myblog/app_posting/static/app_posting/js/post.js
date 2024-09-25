@@ -29,11 +29,6 @@ const TAG = {
 
                 // 모달에 코맨트 데이터 전달 id등
                 MODAL.delete.querySelector("#comment_id").value = cmt.querySelector("#comment-id").value;
-
-                // 서버에 전달
-
-                // 실제 지우기
-
             });
         }
     }

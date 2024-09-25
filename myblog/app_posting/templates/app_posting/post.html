@@ -138,7 +138,7 @@
     </aside>
 
     <div class="modal" id="modal-delete">
-        <form action="{% url 'comment_delete'  %}" method="post">
+        <form id="form-modal" action="{% url 'comment_delete'  %}" method="post">
             {% csrf_token %}
             <label for="modal-pw">PW</label>
             <input id="comment-pw" type="password" name="comment_pw" required>
