@@ -13,6 +13,10 @@ body {
     padding-bottom: 5vh;
 }
 
+a {
+    color: darkgray;
+}
+
 h1 {
     font-size: 1.6rem;
 }
