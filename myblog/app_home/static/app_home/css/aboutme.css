@@ -2,10 +2,10 @@
 
 body {
     width: 100%; height: 100%;
-    display: flex;
 }
 
 aside {
+    position: fixed;
     width: 50%; height: 65vh;
     background-image: url("/static/app_home/image/portrait1.png");
     background-size: cover;
@@ -14,6 +14,7 @@ aside {
 }
 
 main {
+    margin-left: 50%;
     width: 50%; height: 100%;
     padding-left: 1rem; padding-right: 1rem;
     font-style: italic;
@@ -23,8 +24,36 @@ main section {
     border-top: 1px solid orangered;
     margin-bottom: 2rem;
 }
-    .intro {
+    section details summary {
+        cursor: pointer;
+        color: white;
+        margin-top: 0.5rem;
+    }
+    section details summary:hover {
+        font-weight: bold;
+    }
+    section details[open] .section-content {
+        display: block;
+    }
+    .section-content {
+        display: none;
+        width: 100%;
+    }
+        .section-content dt {
+            margin-top: 1rem;
+        }
+        .section-content dd {
+            
+        }
+            dd a {
+                color: white;
+            }
+            dd a:hover{
+                font-weight: bold;
+            }
 
+    .intro {
+        width: 100%; height: 20%;
     }
         .container-roll {
             display: inline-block;
@@ -47,16 +76,36 @@ main section {
             }
 
     .project {
-
+        width: 100%; height: 20%;
     }
 
     .history {
+        width: 100%; height: 20%;
 
     }
         .history li {
-            margin-bottom: 2rem;
-        }:last-child{ margin-bottom: 0; }
-        .evidence {
-            width: 100%; height: 40vh;
+            margin-top: 1rem;
         }
+        .evidence {
+            width: 100%;
+        }
+            .evidence[open] .evidence-detail {
+                display: block;
+            }
+            .evidence-detail {
+                display: none;
+                width: 100%;
+            }
 
+
+@media(max-width:768px){
+    aside{
+        position: relative;
+        width: 100%; height: 30vh;
+        margin-bottom: 1rem;
+    }
+    main{
+        margin-left: 0;
+        width: 100%;
+    }
+}

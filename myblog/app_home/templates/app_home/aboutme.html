@@ -8,17 +8,15 @@
     <link rel='stylesheet' type='text/css' href="{% static 'css/reset.css' %}">
     <link rel='stylesheet' type='text/css' href="{% static 'css/thema.css' %}">
     <link rel='stylesheet' type='text/css' href="{% static 'app_home/css/aboutme.css' %}">
+    <script src="{% static 'app_home/js/aboutme.js' %}"></script>
 </head>
 <body>
     {% include 'header.html' %}
     <h2 style="display: none;">About Me</h2>
 
-    <aside>
-
-    </aside>
+    <aside></aside>
 
     <main>
-
         <section class="intro">
             <h3 style="display: none;">Introduce</h3>
             <div class="container-job">
@@ -46,79 +44,116 @@
 
         <section class="project">
             <h3>Project</h3>
-            <dl>
-                <dt><h4>prj1</h4></dt>
-                <dd>
-                    asdfasdfsdf
-                </dd>
-    
-                <dt><h4>prj2</h4></dt>
-                <dd>
-                    sdfasdf
-                </dd>
-    
-                <dt><h4>prj3</h4></dt>
-                <dd>
-                    sfasfs
-                </dd>
-            </dl>
+            <p>그동안 진행한 프로젝트들 입니다.</p>
+            <details>
+                <summary>클릭하여 보기</summary>
+                <div class="section-content" id="prj-content">
+                    <dl>
+                        <dt><h4>Dungeon Survival</h4></dt>
+                        <dd>
+                            <p>웹소켓을 이용한 실시간 멀티플레이 웹게임</p>
+                            <a href="https://github.com/varzeny/maze_survival">자세히 보기</a>
+                        </dd>
+            
+                        <dt><h4>P.I.A</h4></dt>
+                        <dd>
+                            <p>자동 정보수집 웹서비스</p>
+                            <a href="https://github.com/varzeny/pia">자세히 보기</a>
+                        </dd>
+            
+                        <dt><h4>My Blog</h4></dt>
+                        <dd>
+                            <p>지금 보시는 이 블로그도 포트폴리오용 프로젝트입니다.</p>
+                            <a href="https://github.com/varzeny/my_blog/tree/main/myblog">자세히 보기</a>
+                        </dd>
+                    </dl>
+                </div>
+            </details>
+
+
         </section>
 
         <section class="history">
             <h3>History</h3>
-            <ul class="ul-history">
-                <li>
-                    2024.08<h4>학점은행제 컴퓨터공학 학사</h4>
-                    <div class="evidence" id=""></div>
-                    <p></p>
-                </li>
-                <li>
-                    2024.06<h4>정보처리 산업기사 취득</h4>
-                    <div class="evidence" id="_20240618"></div>
-                    <p></p>
-                </li>
-                <li>
-                    2024.02<h4>한국폴리텍 대학 로봇캠퍼스 졸업</h4>
-                    <div class="evidence" id="_20240207"></div>
-                    <p></p>
-                </li>
-                <li>
-                    2024.02<h4>경북도지사상 수상</h4>
-                    <div class="evidence" id="_20240201"></div>
-                    <p></p>
-                </li>
-                <li>
-                    2023.12<h4>프로보노 ICT멘토링 동상 수상</h4>
-                    <div class="evidence" id="_20231207"></div>
-                    <p></p>
-                </li>
-                <li>
-                    2022.12<h4>Universal Robots Advance Training</h4>
-                    <div class="evidence" id="_20221214"></div>
-                    <p></p>
-                </li>
-                <li>
-                    2022.10<h4>R-BIZ Challenge 참가(최종 7팀)</h4>
-                    <div class="evidence" id="_20221027">
-                        <iframe width=100% height=100% src="https://www.youtube.com/embed/tphH9MOL5aw?si=H67OREIqvFb8-hrP" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
-                    </div>
-                    <p></p>
-                </li>
-                <li>
-                    2022.09<h4>IT융합전자회로설계 경진대회 산학협력상 수상</h4>
-                    <div class="evidence" id="_20220929"></div>
-                    <p></p>
-                </li>
-                <li>
-                    2022.04<h4>ITQ 엑셀 1급</h4>
-                    <p></p>
-                </li>
-                <li>
-                    2022.04<h4>Universal Robots Core Training</h4>
-                    <div class="evidence" id="_20220624"></div>
-                    <p></p>
-                </li>
-            </ul>
+            <p>최근 수 년간의 주요 이력입니다.</p>
+            <details>
+                <summary>클릭하여 보기</summary>
+                <div class="section-content" id="history-content">
+                    <ul class="ul-history">
+                        <li>
+                            2024.08<h4>학점은행제 컴퓨터공학 학사</h4>
+                            <details class="evidence">
+                                <summary>클릭하여 보기</summary>
+                                <img class="evidence-detail" src="{% static 'image/evidence/240823.jpg' %}"></img>
+                            </details>
+                        </li>
+                        <li>
+                            2024.06<h4>정보처리 산업기사 취득</h4>
+                            <details class="evidence">
+                                <summary>클릭하여 보기</summary>
+                                <img class="evidence-detail" src="{% static 'image/evidence/240618.jpg' %}"></img>
+                            </details>
+                        </li>
+                        <li>
+                            2024.02<h4>한국폴리텍 대학 로봇캠퍼스 졸업</h4>
+                            <details class="evidence">
+                                <summary>클릭하여 보기</summary>
+                                <img class="evidence-detail" src="{% static 'image/evidence/240207.jpg' %}"></img>
+                            </details>
+                        </li>
+                        <li>
+                            2024.02<h4>경북도지사상 수상</h4>
+                            <details class="evidence">
+                                <summary>클릭하여 보기</summary>
+                                <img class="evidence-detail" src="{% static 'image/evidence/240201.jpg' %}"></img>
+                            </details>
+                        </li>
+                        <li>
+                            2023.12<h4>프로보노 ICT멘토링 동상 수상</h4>
+                            <details class="evidence">
+                                <summary>클릭하여 보기</summary>
+                                <img class="evidence-detail" src="{% static 'image/evidence/231207.jpg' %}"></img>
+                            </details>
+                        </li>
+                        <li>
+                            2022.12<h4>Universal Robots Advance Training</h4>
+                            <details class="evidence">
+                                <summary>클릭하여 보기</summary>
+                                <img class="evidence-detail" src="{% static 'image/evidence/221214.jpg' %}"></img>
+                            </details>
+                        </li>
+                        <li>
+                            2022.10<h4>R-BIZ Challenge 참가(최종 7팀)</h4>
+                            <img class="evidence">
+                                <iframe width=100% height=100% src="https://www.youtube.com/embed/tphH9MOL5aw?si=H67OREIqvFb8-hrP" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+                            </img>
+                        </li>
+                        <li>
+                            2022.09<h4>IT융합전자회로설계 경진대회 산학협력상 수상</h4>
+                            <details class="evidence">
+                                <summary>클릭하여 보기</summary>
+                                <img class="evidence-detail" src="{% static 'image/evidence/220929.jpg' %}"></img>
+                            </details>
+                        </li>
+                        <li>
+                            2022.06<h4>ITQ 엑셀 1급</h4>
+                            <details class="evidence">
+                                <summary>클릭하여 보기</summary>
+                                <img class="evidence-detail" src="{% static 'image/evidence/220630.jpg' %}"></img>
+                            </details>
+
+                        </li>
+                        <li>
+                            2022.06<h4>Universal Robots Core Training</h4>
+                            <details class="evidence">
+                                <summary>클릭하여 보기</summary>
+                                <img class="evidence-detail" src="{% static 'image/evidence/220624.jpg' %}"></img>
+                            </details>
+                        </li>
+
+                    </ul>
+                </div>
+            </details>
         </section>
 
 

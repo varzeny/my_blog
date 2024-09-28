@@ -7,7 +7,7 @@ body {
 }
 
 aside {
-    width: 30%; height: 100%;
+    width: 20%; height: 100%;
     padding-left: 1rem; padding-right: 1rem;
 }
     aside section {
@@ -29,7 +29,7 @@ aside {
         }
 
 main {
-    width: 70%; height: 100%;
+    width: 80%; height: 100%;
     padding-left: 1rem; padding-right: 1rem;
 }
 
