@@ -28,4 +28,4 @@
 * 진행 : 프로젝트 특성 상 비주기적 업데이트 중
 * 기간 : 프로젝트 특성 상 종료 기한이 모호함
 * 인원 : 1명
-* 결과 : [varzeny.com](varzeny.com)
+* 결과 : [varzeny.com](https://varzeny.com)
