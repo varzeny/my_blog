@@ -1,4 +1,4 @@
-# my_blog
+# My Blog
 
 
 ## 개요
@@ -11,6 +11,7 @@
 
 
 ## 환경
+* 도메인관리 : GoDaddy
 * 클라우드 : AWS(t2.micro)
 * OS : Ubuntu 24.04
 * 리버스 프록시 서버 : Nginx
