@@ -74,7 +74,7 @@ main section {
                 75%{ transform: translateY(-60%); }
                 100%{ transform: translateY(-80%); }
             }
-        .container-link {}
+        .container-link { margin-top: 1rem; }
             .sns {
                 display: inline-block;
                 width: 3rem; height: 3rem;
