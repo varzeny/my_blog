@@ -1,0 +1,74 @@
+/* posting.css */
+
+body {
+    width: 100%; height: 100%;
+    display: flex;
+    font-style: italic;
+}
+
+aside {
+    width: 20%; height: 100%;
+    padding-left: 1rem; padding-right: 1rem;
+}
+    aside section {
+        margin-bottom: 2rem;
+    }:last-child{ margin-bottom: 0; }
+
+    aside span:hover{
+        cursor: pointer;
+        font-weight: bold;
+    }
+        .search {
+
+        }
+        .categories {
+
+        }
+        .tag {
+
+        }
+
+main {
+    width: 80%; height: 100%;
+    padding-left: 1rem; padding-right: 1rem;
+}
+
+    main section {
+
+    }
+        .posts {
+
+        }
+            .posts article {
+                width: 100%; height: 12vh;
+                display: flex;
+                /* border: 1px solid red; */
+                margin-bottom: 1.5rem;
+                border: 1px solid rgba(255, 255, 255, 0.2);
+                box-shadow: 4px 4px 10px rgba(255, 255, 255, 0.2); /* 밝은 회색 그림자 */
+            }:last-child{ margin-bottom: 0; }
+            .posts article:hover {
+                transform: translateY(-5px); /* 마우스 오버 시 살짝 위로 올라오는 효과 */
+                box-shadow: 8px 8px 15px rgba(255, 255, 255, 0.3); /* 더 밝은 그림자 */
+            }
+                .left {
+                    width: 25%; height: 100%;
+                }
+                    .left img {
+                        width: 100%; height: 100%;
+                    }
+                .right {
+                    width: 75%; height: 100%;
+                    padding-left: 1rem;
+                }
+
+        #pagination {
+            display: flex;
+            justify-content: center;
+        }
+            #pagination button {
+                width: 15vw;
+                font-size: 1rem;
+                background-color: black;
+                color: white;
+            }

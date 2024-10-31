@@ -1,0 +1,163 @@
+/* post.css */
+
+main {
+
+    margin-left: 2rem; margin-right: 2rem;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    border-radius: 1rem;
+    box-shadow: 4px 4px 10px rgba(255, 255, 255, 0.2); /* 밝은 회색 그림자 */
+    padding-left: 2rem; padding-right: 2rem; padding-top: 1rem; padding-bottom: 1rem;
+
+}
+    main section {
+        margin-top: 1rem; margin-bottom: 1rem;
+    }
+
+    main img {
+        min-width: 10%; min-height: 10%;
+        max-width: 50%; max-width: 50%;
+    }
+
+    main li {
+        display: inline-block;
+    }
+
+aside {
+    margin: 2rem;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    border-radius: 1rem;
+    box-shadow: 4px 4px 10px rgba(255, 255, 255, 0.2);
+    padding: 2rem;
+}
+    .comment {
+        width: 100%; height: 100%;
+        border: 1px solid rgba(255, 255, 255, 0.2);
+        box-shadow: 4px 4px 10px rgba(255, 255, 255, 0.2); 
+        border-radius: 1rem;
+        padding: 1rem;
+        margin-top: 1rem;
+    }
+        .comment-show{
+            width: 100%; height: 100%;
+            margin-bottom: 1rem;
+        }
+            .comment-list {
+                width: 100%; height: 100%;
+            }
+                .list-element {
+                    width: 100%; height: 100%;
+                }
+                    .comment {
+                        width: 100%; height: 100%;
+                        display: flex;
+                        font-size: 0.8rem;
+                    }
+                        .comment-header {
+                            flex: 1;
+                            margin-right: 1rem;
+                        }
+                            .btn-delete {
+                                width: 100%;
+                                background-color: black;
+                                color: white;
+                                border: 1px solid rgba(255, 255, 255, 0.2);
+                            }
+                            .btn-delete:hover {
+                                transform: translateY(-5px);
+                                box-shadow: 0px 0px 20px rgba(255, 255, 255, 0.4);
+                            }
+                        .comment-content {
+                            flex: 7;
+                            margin-left: 1rem;
+                            margin-right: 1rem;
+                        }
+                        .comment-footer {
+                            flex: 2;
+                            margin-left: 1rem;
+                        }
+        .comment-writer {
+            width: 100%; height: 100%;
+        }
+            .comment-form {
+                width: 100%; height: 100%;
+                display: flex;
+                border: 1px solid rgba(255, 255, 255, 0.2);
+                box-shadow: 4px 4px 10px rgba(255, 255, 255, 0.2);
+                border-radius: 1rem;
+                padding: 1rem;
+                margin-top: 1rem;
+            }
+                .comment-form > .l {
+                    flex: 1;
+                    margin-right: 1rem;
+                }
+                    .l > label {
+                        width: 100%;
+                    }
+                    .l > input {
+                        width: 100%;
+                        background-color: black;
+                        border: 1px solid rgba(255, 255, 255, 0.2);
+                        color: white;
+                    }
+                .comment-form > .m {
+                    flex: 8;
+                    margin-right: 1rem;
+                }
+                    .m > textarea {
+                        width: 100%; height: 100%;
+                        border: 1px solid rgba(255, 255, 255, 0.2);
+                        background-color: black;
+                        color: white;
+                    }
+                .comment-form > .r {
+                    flex: 1;
+
+                }
+                    .r > button {
+                        width: 100%; height: 100%;
+                        background-color: black;
+                        border: 1px solid rgba(255, 255, 255, 0.2);
+                        box-shadow: 4px 4px 10px rgba(255, 255, 255, 0.2);
+                        color: white;
+                    }
+                    .r > button:hover{
+                        transform: translateY(-5px);
+                        box-shadow: 0px 0px 20px rgba(255, 255, 255, 0.4);
+
+                    }
+
+.modal {
+    display: none;
+
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    border-radius: 0.5rem;
+    padding: 0.5rem;
+    position: absolute;
+    z-index: 10;
+    background-color: black;
+}
+    #form-modal{
+
+    }
+        #form-modal > label {
+            flex: 1;
+            margin-right: 0.5rem;
+        }
+        #form-modal > input {
+            flex: 7;
+            margin-right: 0.5rem;
+            background-color: black;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            color: white;
+        }
+        #form-modal > button {
+            flex: 2;
+            background-color: black;
+            color: white;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+        }
+        #form-modal > button:hover{
+            transform: translateY(-5px);
+            box-shadow: 0px 0px 20px rgba(255, 255, 255, 0.4);
+        }
