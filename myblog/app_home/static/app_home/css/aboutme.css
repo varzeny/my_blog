@@ -74,6 +74,19 @@ main section {
                 75%{ transform: translateY(-60%); }
                 100%{ transform: translateY(-80%); }
             }
+        .container-link {}
+            #youtube {
+
+            }
+                #youtube img {
+                    src: url("/static/app_home/image/youtube.ico");
+                }
+            #github {
+
+            }
+                #github img {
+                    src: url("/static/app_home/image/github.png");
+                }
 
     .project {
         width: 100%; height: 20%;
