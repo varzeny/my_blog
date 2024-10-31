@@ -75,6 +75,13 @@ main section {
                 100%{ transform: translateY(-80%); }
             }
         .container-link {}
+            .sns {
+                display: inline-block;
+                width: 3rem; height: 3rem;
+            }
+                .sns img {
+                    width: 100%; height: 100%;
+                }
             #youtube {
 
             }
